@@ -41,15 +41,17 @@ export default function SplashScreen({navigation}) {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
+            marginLeft: 10,
           }}>
-          <Image source={Meta} style={{width: 30, height: 20, marginTop: 5}} />
+          <Image source={Meta} style={{width: 30, height: 20, marginTop: 10}} />
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 21,
               fontWeight: '400',
               fontFamily: 'Roboto-Thin',
               color: 'white',
-              marginLeft: 5,
+              marginLeft: 4,
+              marginTop: 8,
             }}>
             Meta
           </Text>

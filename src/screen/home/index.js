@@ -127,10 +127,9 @@ import {Back, Cam, Chat, Photo, Search, Setings, User} from '../../assets';
 const Home = ({navigation}) => {
   const [isi, setIsi] = useState([
     {nama: 'Amar', poto: require('../../assets/amar.jpg')},
-    // Tambahkan kontak lain di sini jika perlu
   ]);
   const [value, setValue] = useState('');
-  const [photoUri, setPhotoUri] = useState(null); // Menyimpan URI gambar yang dipilih
+  const [photoUri, setPhotoUri] = useState(null);
   const [visible, setVisible] = useState(false);
 
   const pindah = () => {
@@ -144,7 +143,7 @@ const Home = ({navigation}) => {
       } else if (response.errorMessage) {
         console.log('ImagePicker Error: ', response.errorMessage);
       } else if (response.assets && response.assets.length > 0) {
-        setPhotoUri(response.assets[0].uri); // Set URI gambar yang dipilih
+        setPhotoUri(response.assets[0].uri);
       }
     });
   };
@@ -208,7 +207,7 @@ const Home = ({navigation}) => {
             position: 'absolute',
             right: 30,
           }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Masuk')}>
+          <TouchableOpacity>
             <Image source={Cam} style={{width: 27, height: 27}} />
           </TouchableOpacity>
           <TouchableOpacity style={{marginHorizontal: 20}}>
@@ -230,6 +229,7 @@ const Home = ({navigation}) => {
         data={isi}
         keyExtractor={(item, index) => index.toString()}
         renderItem={renderItem}
+        style={{marginTop: 15, marginHorizontal: 10}}
       />
       <TouchableOpacity
         style={{
@@ -311,7 +311,7 @@ const Home = ({navigation}) => {
                   marginLeft: 20,
                   paddingVertical: 10,
                 }}
-                onPress={openGallery}>
+                onPress={() => openGallery()}>
                 <Text style={{color: 'grey'}}>
                   {photoUri ? 'Foto Dipilih' : 'Pilih Foto'}
                 </Text>
@@ -330,7 +330,7 @@ const Home = ({navigation}) => {
               borderRadius: 15,
             }}
             activeOpacity={0.8}
-            onPress={masukin}>
+            onPress={() => masukin()}>
             <Text style={{color: 'black', fontSize: 14}}>Kirim</Text>
           </TouchableOpacity>
         </View>

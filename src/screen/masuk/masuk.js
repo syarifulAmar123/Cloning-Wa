@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import {
   Alert,
   FlatList,
+  Image,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
+import {kirim} from '../../assets';
 
 const Masuk = () => {
   const [amar, setAmar] = useState([]);
@@ -62,7 +64,7 @@ const Masuk = () => {
   };
 
   return (
-    <View style={{flex: 1, padding: 20}}>
+    <View style={{flex: 1, padding: 20, backgroundColor: '#0d1c23'}}>
       {amar.length > 0 && (
         <FlatList
           data={amar}
@@ -73,32 +75,45 @@ const Masuk = () => {
       <View
         style={{
           flexDirection: 'row',
-          height: 50,
-          borderWidth: 1,
-          borderColor: 'grey',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginTop: 20,
-          paddingHorizontal: 10,
+          position: 'absolute',
+          bottom: 20,
+          left: 10,
         }}>
-        <TextInput
-          value={baru}
-          onChangeText={text => setBaru(text)}
-          placeholder="Masukkan yang baru"
-          style={{color: 'black', flex: 1}}
-        />
+        <View
+          style={{
+            flexDirection: 'row',
+            height: 52,
+            width: 335,
+            borderWidth: 1,
+            borderColor: 'grey',
+            borderRadius: 30,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            paddingHorizontal: 10,
+          }}>
+          <Image />
+          <TextInput
+            value={baru}
+            onChangeText={text => setBaru(text)}
+            placeholder="Ketik pesan"
+            placeholderTextColor={'grey'}
+            style={{color: 'white', flex: 1, marginLeft: 10}}
+          />
+          <Image />
+          <Image />
+        </View>
         <TouchableOpacity
           style={{
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'crimson',
+            backgroundColor: '#1daa61',
             width: 50,
             height: 50,
+            borderRadius: 40,
+            marginLeft: 10,
           }}
           onPress={addTodo}>
-          <Text style={{fontSize: 21, fontWeight: '600', color: 'white'}}>
-            +
-          </Text>
+          <Image source={kirim} style={{width: 20, height: 20}} />
         </TouchableOpacity>
       </View>
     </View>

@@ -8,4 +8,25 @@ import Back from './back00.png';
 import User from './user.png';
 import Photo from './poto.png';
 import kirim from './kirim.png';
-export {Wa, Meta, Cam, Setings, Search, Chat, Back, Photo, User, kirim};
+import Balik from './back4.png';
+import VC from './vc.png';
+import Hp from './hp.png';
+import Three from './3.png';
+import Mic from './mic.png';
+export {
+  Wa,
+  Meta,
+  Cam,
+  Setings,
+  Search,
+  Chat,
+  Back,
+  Photo,
+  User,
+  kirim,
+  Balik,
+  VC,
+  Hp,
+  Three,
+  Mic,
+};

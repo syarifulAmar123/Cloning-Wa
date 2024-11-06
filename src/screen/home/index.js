@@ -21,8 +21,8 @@ const Home = ({navigation}) => {
   const [photoUri, setPhotoUri] = useState(null);
   const [visible, setVisible] = useState(false);
 
-  const pindah = () => {
-    navigation.navigate('Masuk');
+  const pindah = item => {
+    navigation.navigate('Masuk', {poto: item.poto, nama: item.nama});
   };
 
   const openGallery = () => {
@@ -57,7 +57,7 @@ const Home = ({navigation}) => {
         marginHorizontal: 15,
         marginVertical: 15,
       }}
-      onPress={() => pindah()}>
+      onPress={() => pindah(item)}>
       <Image
         source={item.poto}
         style={{width: 50, height: 50, borderRadius: 35}}

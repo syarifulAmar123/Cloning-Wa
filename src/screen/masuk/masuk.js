@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Alert,
   FlatList,
   Image,
+  StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {kirim} from '../../assets';
+import {Back, Balik, Hp, kirim, Mic, Three, VC} from '../../assets';
 
-const Masuk = () => {
+const Masuk = ({route, navigation}) => {
+  const {poto, nama} = route?.params;
   const [amar, setAmar] = useState([]);
   const [baru, setBaru] = useState('');
-
+  const [ganti, setGanti] = useState(false);
   const addTodo = () => {
     if (baru.trim() !== '') {
       let randomNumber = Math.random();
@@ -64,7 +66,65 @@ const Masuk = () => {
   };
 
   return (
-    <View style={{flex: 1, padding: 20, backgroundColor: '#0d1c23'}}>
+    <View style={{flex: 1, backgroundColor: '#0b141b'}}>
+      <View
+        style={{
+          width: '100%',
+          height: 40,
+          backgroundColor: '#0b141b',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}>
+        <View style={{flexDirection: 'row', marginTop: 10}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image
+              source={Balik}
+              style={{width: 25, height: 38, marginLeft: 10}}
+            />
+          </TouchableOpacity>
+          <Image
+            source={typeof poto === 'string' ? {uri: poto} : poto}
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 50,
+              marginHorizontal: 10,
+            }}
+          />
+          <Text
+            style={{
+              fontSize: 20,
+              color: 'white',
+              marginTop: 5,
+              marginLeft: 5,
+            }}>
+            {nama}
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            marginRight: 5,
+          }}>
+          <TouchableOpacity>
+            <Image
+              source={VC}
+              style={{width: 30, height: 30, marginRight: 15}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={Hp}
+              style={{width: 30, height: 30, marginHorizontal: 10}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={Three} style={{width: 30, height: 30}} />
+          </TouchableOpacity>
+        </View>
+      </View>
       {amar.length > 0 && (
         <FlatList
           data={amar}
@@ -72,6 +132,7 @@ const Masuk = () => {
           keyExtractor={(item, index) => index.toString()}
         />
       )}
+      <StatusBar barStyle={'light-content'} backgroundColor={'#0b141b'} />
       <View
         style={{
           flexDirection: 'row',
@@ -91,16 +152,18 @@ const Masuk = () => {
             alignItems: 'center',
             paddingHorizontal: 10,
           }}>
-          <Image />
+          {/* <Image /> */}
           <TextInput
             value={baru}
             onChangeText={text => setBaru(text)}
             placeholder="Ketik pesan"
             placeholderTextColor={'grey'}
             style={{color: 'white', flex: 1, marginLeft: 10}}
+            onFocus={() => setGanti(true)}
+            onBlur={() => setGanti(false)}
           />
-          <Image />
-          <Image />
+          {/* <Image />
+          <Image /> */}
         </View>
         <TouchableOpacity
           style={{
@@ -113,7 +176,7 @@ const Masuk = () => {
             marginLeft: 10,
           }}
           onPress={addTodo}>
-          <Image source={kirim} style={{width: 20, height: 20}} />
+          <Image source={ganti ? kirim : Mic} style={{width: 20, height: 20}} />
         </TouchableOpacity>
       </View>
     </View>

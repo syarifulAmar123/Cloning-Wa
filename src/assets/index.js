@@ -13,6 +13,8 @@ import VC from './vc.png';
 import Hp from './hp.png';
 import Three from './3.png';
 import Mic from './mic.png';
+import PaperClip from './paperclip.png';
+import Emot from './emot.png';
 export {
   Wa,
   Meta,
@@ -29,4 +31,6 @@ export {
   Hp,
   Three,
   Mic,
+  Emot,
+  PaperClip,
 };

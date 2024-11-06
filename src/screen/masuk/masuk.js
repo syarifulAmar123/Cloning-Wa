@@ -3,19 +3,40 @@ import {
   Alert,
   FlatList,
   Image,
+  Modal,
   StatusBar,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Back, Balik, Hp, kirim, Mic, Three, VC} from '../../assets';
+import {
+  Back,
+  Balik,
+  Cam,
+  Emot,
+  Hp,
+  kirim,
+  Mic,
+  PaperClip,
+  Three,
+  VC,
+} from '../../assets';
 
 const Masuk = ({route, navigation}) => {
   const {poto, nama} = route?.params;
   const [amar, setAmar] = useState([]);
   const [baru, setBaru] = useState('');
   const [ganti, setGanti] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  const handlerIcon = () => {
+    if (baru.length > 0) {
+      setGanti(true);
+    } else {
+      setGanti(false);
+    }
+  };
   const addTodo = () => {
     if (baru.trim() !== '') {
       let randomNumber = Math.random();
@@ -75,6 +96,7 @@ const Masuk = ({route, navigation}) => {
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
+          marginTop: 10,
         }}>
         <View style={{flexDirection: 'row', marginTop: 10}}>
           <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -83,15 +105,17 @@ const Masuk = ({route, navigation}) => {
               style={{width: 25, height: 38, marginLeft: 10}}
             />
           </TouchableOpacity>
-          <Image
-            source={typeof poto === 'string' ? {uri: poto} : poto}
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 50,
-              marginHorizontal: 10,
-            }}
-          />
+          <TouchableOpacity onPress={() => setVisible(true)}>
+            <Image
+              source={typeof poto === 'string' ? {uri: poto} : poto}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 50,
+                marginHorizontal: 10,
+              }}
+            />
+          </TouchableOpacity>
           <Text
             style={{
               fontSize: 20,
@@ -144,7 +168,7 @@ const Masuk = ({route, navigation}) => {
           style={{
             flexDirection: 'row',
             height: 52,
-            width: 335,
+            width: 310,
             borderWidth: 1,
             borderColor: 'grey',
             borderRadius: 30,
@@ -152,18 +176,33 @@ const Masuk = ({route, navigation}) => {
             alignItems: 'center',
             paddingHorizontal: 10,
           }}>
-          {/* <Image /> */}
+          <TouchableOpacity>
+            <Image source={Emot} style={{width: 25, height: 25}} />
+          </TouchableOpacity>
           <TextInput
             value={baru}
-            onChangeText={text => setBaru(text)}
+            onChangeText={text => {
+              setBaru(text);
+              handlerIcon();
+            }}
             placeholder="Ketik pesan"
             placeholderTextColor={'grey'}
-            style={{color: 'white', flex: 1, marginLeft: 10}}
-            onFocus={() => setGanti(true)}
+            style={{color: 'white', flex: 1, marginLeft: 10, fontSize: 16}}
+            onFocus={() => handlerIcon()}
             onBlur={() => setGanti(false)}
           />
-          {/* <Image />
-          <Image /> */}
+          <TouchableOpacity>
+            <Image
+              source={PaperClip}
+              style={{width: 25, height: 25, marginRight: 5}}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={Cam}
+              style={{width: 25, height: 25, marginRight: 5}}
+            />
+          </TouchableOpacity>
         </View>
         <TouchableOpacity
           style={{
@@ -179,6 +218,36 @@ const Masuk = ({route, navigation}) => {
           <Image source={ganti ? kirim : Mic} style={{width: 20, height: 20}} />
         </TouchableOpacity>
       </View>
+      <Modal visible={visible} transparent={true} animationType="slide">
+        <TouchableOpacity
+          style={{flex: 1, alignItems: 'center'}}
+          onPress={() => setVisible(false)}
+          activeOpacity={1}>
+          <View
+            style={{
+              width: 200,
+              height: 250,
+              marginTop: 200,
+              backgroundColor: 'white',
+            }}>
+            <Image
+              source={typeof poto === 'string' ? {uri: poto} : poto}
+              style={{width: 200, height: 200}}
+              resizeMode="cover"
+            />
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 21,
+                fontWeight: '600',
+                textAlign: 'center',
+                marginTop: 10,
+              }}>
+              {nama}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };

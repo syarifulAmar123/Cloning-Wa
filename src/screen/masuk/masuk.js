@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   Alert,
   FlatList,
@@ -29,6 +29,7 @@ const Masuk = ({route, navigation}) => {
   const [baru, setBaru] = useState('');
   const [ganti, setGanti] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [textInputHeight, setTextInputHeight] = useState(40); // Default height
 
   const handlerIcon = () => {
     if (baru.length > 0) {
@@ -37,53 +38,47 @@ const Masuk = ({route, navigation}) => {
       setGanti(false);
     }
   };
+
   const addTodo = () => {
     if (baru.trim() !== '') {
       let randomNumber = Math.random();
-      let news = [...amar, {id: randomNumber, nama: baru}];
+      let news = [...amar, {id: randomNumber, Text: baru}];
       setAmar(news);
       setBaru('');
+      setTextInputHeight(40);
     } else {
-      Alert.alert('isikan terlebih dahulu');
+      Alert.alert('Isikan terlebih dahulu');
     }
-  };
-
-  const Delete = id => {
-    const Anyar = amar.filter(item => item.id !== id);
-    setAmar(Anyar);
   };
 
   const renderItem = ({item}) => {
-    if (item.nama === '') {
-      return;
-    } else {
-      return (
-        <View
-          style={{
-            margin: 20,
-            padding: 5,
-            borderWidth: 0.5,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{fontSize: 18, color: 'black'}}>{item.nama}</Text>
-          <TouchableOpacity
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#263238',
-              width: 30,
-              height: 30,
-            }}
-            onPress={() => Delete(item.id)}>
-            <Text style={{fontSize: 21, fontWeight: '600', color: 'white'}}>
-              -
-            </Text>
-          </TouchableOpacity>
-        </View>
-      );
+    if (item.Text === '') {
+      return null;
     }
+    return (
+      <View
+        style={{
+          padding: 10,
+          borderRadius: 10,
+          marginTop: 10,
+          flexDirection: 'row',
+          justifyContent: 'flex-end',
+          backgroundColor: '#134d37',
+          maxWidth: '80%',
+          alignSelf: 'flex-end',
+          marginHorizontal: 10,
+        }}>
+        <Text
+          style={{
+            fontSize: 18,
+            color: 'white',
+            fontFamily: 'Roboto-Regular',
+            fontWeight: '400',
+          }}>
+          {item.Text}
+        </Text>
+      </View>
+    );
   };
 
   return (
@@ -153,7 +148,7 @@ const Masuk = ({route, navigation}) => {
         <FlatList
           data={amar}
           renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={item => item.id.toString()}
         />
       )}
       <StatusBar barStyle={'light-content'} backgroundColor={'#0b141b'} />
@@ -167,8 +162,8 @@ const Masuk = ({route, navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            height: 52,
-            width: 310,
+            minHeight: 52,
+            width: 315,
             borderWidth: 1,
             borderColor: 'grey',
             borderRadius: 30,
@@ -181,6 +176,7 @@ const Masuk = ({route, navigation}) => {
           </TouchableOpacity>
           <TextInput
             value={baru}
+            multiline={true}
             onChangeText={text => {
               setBaru(text);
               handlerIcon();

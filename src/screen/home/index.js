@@ -108,7 +108,7 @@ const Home = ({navigation}) => {
           </TouchableOpacity>
           <Modal transparent={true} visible={seting} animationType='fade'>
           <TouchableOpacity style={{flex : 1}} onPress={()=>setSeting(false)} >
-          <View style={{width : 170 , height : 210 , backgroundColor : '#00383c',position : 'absolute' , right : 5 , top : 40 , borderRadius : 10 , elevation : 3 }}>
+          <View style={{width : 170 , height : 210 , backgroundColor : '#002A2D',position : 'absolute' , right : 5 , top : 40 , borderRadius : 10 , elevation : 3 }}>
            <TouchableOpacity>
             <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Grup</Text>
            </TouchableOpacity>

@@ -144,13 +144,14 @@ const Masuk = ({route, navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-      {amar.length > 0 && (
+      {amar.length > 0 && 
         <FlatList
           data={amar}
           renderItem={renderItem}
           keyExtractor={item => item.id.toString()}
+          style={{marginTop : 20}}
         />
-      )}
+      }
       <StatusBar barStyle={'light-content'} backgroundColor={'#0b141b'} />
       <View
         style={{

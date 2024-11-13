@@ -20,7 +20,7 @@ const Home = ({navigation}) => {
   const [value, setValue] = useState('');
   const [photoUri, setPhotoUri] = useState(null);
   const [visible, setVisible] = useState(false);
-  const [seting , setSeting]=useState(false)
+  const [seting, setSeting] = useState(false);
 
   const pindah = item => {
     navigation.navigate('Masuk', {poto: item.poto, nama: item.nama});
@@ -103,29 +103,85 @@ const Home = ({navigation}) => {
           <TouchableOpacity style={{marginHorizontal: 20}}>
             <Image source={Search} style={{width: 27, height: 27}} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>setSeting(true)}>
+          <TouchableOpacity onPress={() => setSeting(true)}>
             <Image source={Setings} style={{width: 27, height: 27}} />
           </TouchableOpacity>
-          <Modal transparent={true} visible={seting} animationType='fade'>
-          <TouchableOpacity style={{flex : 1}} onPress={()=>setSeting(false)} >
-          <View style={{width : 170 , height : 210 , backgroundColor : '#002A2D',position : 'absolute' , right : 5 , top : 40 , borderRadius : 10 , elevation : 3 }}>
-           <TouchableOpacity>
-            <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Grup</Text>
-           </TouchableOpacity>
-            <TouchableOpacity>
-            <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Siaran baru</Text>
+          <Modal transparent={true} visible={seting} animationType="fade">
+            <TouchableOpacity
+              style={{flex: 1}}
+              onPress={() => setSeting(false)}>
+              <View
+                style={{
+                  width: 160,
+                  height: 210,
+                  backgroundColor: '#002A2D',
+                  position: 'absolute',
+                  right: 5,
+                  top: 45,
+                  borderRadius: 10,
+                }}>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Grup
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Siaran baru
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Perangkat tertaut
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Pesan berbintang
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Setelan
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </TouchableOpacity>
-            <TouchableOpacity>
-            <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Perangkat tertaut</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Pesan berbintang</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-            <Text style={{fontSize : 16 , color : 'white' , fontWeight : '400'  , marginTop : 15 ,marginLeft :10}}>Setelan</Text>
-            </TouchableOpacity>
-          </View>
-          </TouchableOpacity>
           </Modal>
         </View>
       </View>

@@ -29,7 +29,7 @@ const Masuk = ({route, navigation}) => {
   const [baru, setBaru] = useState('');
   const [ganti, setGanti] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [textInputHeight, setTextInputHeight] = useState(40); // Default height
+  const [textInputHeight, setTextInputHeight] = useState(40);
 
   const handlerIcon = () => {
     if (baru.length > 0) {
@@ -60,7 +60,7 @@ const Masuk = ({route, navigation}) => {
         style={{
           padding: 10,
           borderRadius: 10,
-          marginTop: 10,
+          marginTop: 5,
           flexDirection: 'row',
           justifyContent: 'flex-end',
           backgroundColor: '#134d37',
@@ -70,7 +70,7 @@ const Masuk = ({route, navigation}) => {
         }}>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: 15,
             color: 'white',
             fontFamily: 'Roboto-Regular',
             fontWeight: '400',
@@ -144,14 +144,14 @@ const Masuk = ({route, navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-      {amar.length > 0 && 
+      {amar.length > 0 && (
         <FlatList
           data={amar}
           renderItem={renderItem}
           keyExtractor={item => item.id.toString()}
-          style={{marginTop : 20}}
+          style={{marginTop: 20}}
         />
-      }
+      )}
       <StatusBar barStyle={'light-content'} backgroundColor={'#0b141b'} />
       <View
         style={{

@@ -2,8 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from './splashScreen';
-import Home from './home';
+import Home from './home/Home';
 import Masuk from './masuk/masuk';
+import Setelan from './setelan/Setelan';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -15,6 +16,7 @@ const App = () => {
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Masuk" component={Masuk} />
+        <Stack.Screen name="Setelan" component={Setelan} />
       </Stack.Navigator>
     </NavigationContainer>
   );

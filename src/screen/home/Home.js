@@ -70,8 +70,8 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <View style={{flex: 1, backgroundColor: '#0d1c23'}}>
-      <StatusBar barStyle="light-content" backgroundColor="#0d1c23" />
+    <View style={{flex: 1, backgroundColor: '#091114'}}>
+      <StatusBar barStyle="light-content" backgroundColor="#091114" />
       <View
         style={{
           width: '100%',
@@ -114,7 +114,7 @@ const Home = ({navigation}) => {
                 style={{
                   width: 160,
                   height: 210,
-                  backgroundColor: '#002A2D',
+                  backgroundColor: '#11171a',
                   position: 'absolute',
                   right: 5,
                   top: 45,
@@ -168,7 +168,8 @@ const Home = ({navigation}) => {
                     Pesan berbintang
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Setelan')}>
                   <Text
                     style={{
                       fontSize: 16,

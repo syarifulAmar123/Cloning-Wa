@@ -1,8 +1,101 @@
-import React from 'react';
-import {Image, StatusBar, Text, TouchableOpacity, View} from 'react-native';
-import {Balik, Search} from '../../assets';
+import React, {useState} from 'react';
+import {
+  FlatList,
+  Image,
+  Keyboard,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {
+  AddGroup,
+  Amar,
+  bahasa,
+  Balik,
+  Barcode,
+  bunderUser,
+  ChatIcon,
+  Gembok,
+  Help,
+  Key,
+  Notification,
+  Search,
+} from '../../assets';
 
 const Setelan = ({navigation}) => {
+  const [data, setData] = useState([
+    {
+      poto: Key,
+      title: 'Akun',
+      subTitle: 'notifikasi keamanan , ganti nomer',
+    },
+    {
+      poto: Gembok,
+      title: 'Privasi',
+      subTitle: 'Blokir kontak , pesan sementara',
+    },
+    {
+      poto: bunderUser,
+      title: 'Avatar',
+      subTitle: 'Buat , edit, foto profil',
+    },
+    {
+      poto: Key,
+      title: 'Daftar',
+      subTitle: 'kelola orang dan group',
+    },
+    {
+      poto: ChatIcon,
+      title: 'Chat',
+      subTitle: 'Tema , walpaper, riwayat chat',
+    },
+    {
+      poto: Notification,
+      title: 'Notifikasi',
+      subTitle: 'Pesan, grup & nada dering panggilan',
+    },
+    {
+      poto: Key,
+      title: 'Penyimpanan dan Data',
+      subTitle: 'Penggunaan jaringan, unduh otomatis',
+    },
+    {
+      poto: bahasa,
+      title: 'Bahasa Aplkasi',
+      subTitle: 'Bahasa indonesia (bahasa perangkat)',
+    },
+    {
+      poto: Help,
+      title: 'Bantuan',
+      subTitle: 'Pusat bantuan, hubungi kami,',
+    },
+    {
+      poto: Key,
+      title: 'Undang teman',
+    },
+    {
+      poto: Key,
+      title: 'Pembaruan aplikasi',
+    },
+  ]);
+  const renderItem = ({item}) => {
+    return (
+      <TouchableOpacity style={{flexDirection: 'row', margin: 20}}>
+        <Image
+          source={item.poto}
+          style={{width: 30, height: 30, marginTop: 5}}
+        />
+        <View style={{marginLeft: 20}}>
+          <Text style={{fontSize: 17, color: 'white'}}>{item.title}</Text>
+          <Text style={{fontSize: 13, color: 'grey', marginTop: 5}}>
+            {item.subTitle}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
   return (
     <View
       style={{
@@ -10,7 +103,14 @@ const Setelan = ({navigation}) => {
         backgroundColor: '#091114',
       }}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#091114'} />
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          borderBottomWidth: 0.2,
+          borderColor: '#2b3338',
+          paddingBottom: 15,
+        }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={Balik}
@@ -24,6 +124,58 @@ const Setelan = ({navigation}) => {
           <Image source={Search} style={{width: 27, height: 30}} />
         </TouchableOpacity>
       </View>
+      <ScrollView>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginTop: 20,
+            borderBottomWidth: 0.2,
+            borderColor: '#2b3338',
+            paddingBottom: 15,
+          }}>
+          <Image
+            source={Amar}
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 35,
+              marginRight: -20,
+              marginLeft: 10,
+            }}
+          />
+          <View>
+            <Text style={{color: 'white', fontSize: 16, fontWeight: '500'}}>
+              Amaeer
+            </Text>
+            <Text
+              style={{
+                color: 'grey',
+                fontSize: 13,
+                fontWeight: '500',
+                marginTop: 5,
+              }}>
+              Sedang menertawakan hidup
+            </Text>
+          </View>
+          <TouchableOpacity>
+            <Image source={Barcode} style={{width: 30, height: 30}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={AddGroup}
+              style={{width: 30, height: 30, marginLeft: -20}}
+            />
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={data}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={renderItem}
+          nestedScrollEnabled={true}
+        />
+      </ScrollView>
     </View>
   );
 };

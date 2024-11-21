@@ -25,7 +25,15 @@ import bahasa from './language_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 import Help from './help_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 import Gembok from './lock_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 import ChatIcon from './chat_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Undangan from './group_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Android from './smartphone_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Data from './directory_sync_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Daftar from './patient_list_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 export {
+  Daftar,
+  Data,
+  Android,
+  Undangan,
   ChatIcon,
   Gembok,
   Help,

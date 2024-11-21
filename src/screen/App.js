@@ -5,6 +5,7 @@ import SplashScreen from './splashScreen';
 import Home from './home/Home';
 import Masuk from './masuk/masuk';
 import Setelan from './setelan/Setelan';
+import Tautan from './tautan/tautan';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Masuk" component={Masuk} />
         <Stack.Screen name="Setelan" component={Setelan} />
+        <Stack.Screen name="Tautan" component={Tautan} />
       </Stack.Navigator>
     </NavigationContainer>
   );

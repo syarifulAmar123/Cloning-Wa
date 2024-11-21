@@ -12,16 +12,19 @@ import {
 import {
   AddGroup,
   Amar,
+  Android,
   bahasa,
   Balik,
   Barcode,
   bunderUser,
   ChatIcon,
+  Daftar,
   Gembok,
   Help,
   Key,
   Notification,
   Search,
+  Undangan,
 } from '../../assets';
 
 const Setelan = ({navigation}) => {
@@ -42,7 +45,7 @@ const Setelan = ({navigation}) => {
       subTitle: 'Buat , edit, foto profil',
     },
     {
-      poto: Key,
+      poto: Daftar,
       title: 'Daftar',
       subTitle: 'kelola orang dan group',
     },
@@ -72,11 +75,11 @@ const Setelan = ({navigation}) => {
       subTitle: 'Pusat bantuan, hubungi kami,',
     },
     {
-      poto: Key,
+      poto: Undangan,
       title: 'Undang teman',
     },
     {
-      poto: Key,
+      poto: Android,
       title: 'Pembaruan aplikasi',
     },
   ]);
@@ -85,11 +88,11 @@ const Setelan = ({navigation}) => {
       <TouchableOpacity style={{flexDirection: 'row', margin: 20}}>
         <Image
           source={item.poto}
-          style={{width: 30, height: 30, marginTop: 5}}
+          style={{width: 25, height: 25, marginTop: 5}}
         />
         <View style={{marginLeft: 20}}>
-          <Text style={{fontSize: 17, color: 'white'}}>{item.title}</Text>
-          <Text style={{fontSize: 13, color: 'grey', marginTop: 5}}>
+          <Text style={{fontSize: 15, color: 'white'}}>{item.title}</Text>
+          <Text style={{fontSize: 12, color: 'grey', marginTop: 5}}>
             {item.subTitle}
           </Text>
         </View>
@@ -114,10 +117,10 @@ const Setelan = ({navigation}) => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={Balik}
-            style={{width: 25, height: 38, marginLeft: 15}}
+            style={{width: 21, height: 32, marginLeft: 15}}
           />
         </TouchableOpacity>
-        <Text style={{fontSize: 24, color: 'white', marginLeft: 20}}>
+        <Text style={{fontSize: 21, color: 'white', marginLeft: 20}}>
           Setelan
         </Text>
         <TouchableOpacity style={{position: 'absolute', right: 20}}>
@@ -175,6 +178,9 @@ const Setelan = ({navigation}) => {
           renderItem={renderItem}
           nestedScrollEnabled={true}
         />
+        <Text style={{fontSize: 14, color: 'grey', margin: 20}}>
+          juga dari Meta
+        </Text>
       </ScrollView>
     </View>
   );

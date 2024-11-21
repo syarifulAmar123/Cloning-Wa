@@ -144,7 +144,7 @@ const Home = ({navigation}) => {
                     Siaran baru
                   </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Tautan')}>
                   <Text
                     style={{
                       fontSize: 16,

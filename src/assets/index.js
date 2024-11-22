@@ -32,7 +32,11 @@ import Daftar from './patient_list_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 import computer from './computer_9722848.png';
 import Phone from './phone-chat_5962571.png';
 import Windows from './windows.png';
+import Share from './share_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import QR from './Qrjpg.jpg';
 export {
+  QR,
+  Share,
   Windows,
   Phone,
   computer,

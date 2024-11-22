@@ -162,7 +162,7 @@ const Setelan = ({navigation}) => {
               Sedang menertawakan hidup
             </Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('barcode')}>
             <Image source={Barcode} style={{width: 30, height: 30}} />
           </TouchableOpacity>
           <TouchableOpacity>

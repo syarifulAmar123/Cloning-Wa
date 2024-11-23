@@ -34,7 +34,23 @@ import Phone from './phone-chat_5962571.png';
 import Windows from './windows.png';
 import Share from './share_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 import QR from './Qrjpg.jpg';
+import Security from './security_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import lockUser from './passkey_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import email from './mail_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Sandi from './password_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import phone from './send_to_mobile_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Paper from './description_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import addPerson from './person_add_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
+import Tps from './delete_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png';
 export {
+  Security,
+  lockUser,
+  email,
+  Sandi,
+  phone,
+  Paper,
+  addPerson,
+  Tps,
   QR,
   Share,
   Windows,

@@ -216,6 +216,7 @@ const Home = ({navigation}) => {
       </TouchableOpacity>
       <Modal visible={visible}>
         <View style={{flex: 1, backgroundColor: '#0d1c23'}}>
+          <StatusBar barStyle={'light-content'} backgroundColor={'#001c22'} />
           <View
             style={{
               marginHorizontal: 20,

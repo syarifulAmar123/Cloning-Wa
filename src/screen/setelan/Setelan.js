@@ -33,59 +33,72 @@ const Setelan = ({navigation}) => {
       poto: Key,
       title: 'Akun',
       subTitle: 'notifikasi keamanan , ganti nomer',
+      screen: 'akun',
     },
     {
       poto: Gembok,
       title: 'Privasi',
       subTitle: 'Blokir kontak , pesan sementara',
+      screen: 'Privasi',
     },
     {
       poto: bunderUser,
       title: 'Avatar',
       subTitle: 'Buat , edit, foto profil',
+      screen: 'Avatar',
     },
     {
       poto: Daftar,
       title: 'Daftar',
       subTitle: 'kelola orang dan group',
+      screen: 'Daftar',
     },
     {
       poto: ChatIcon,
       title: 'Chat',
       subTitle: 'Tema , walpaper, riwayat chat',
+      screen: 'Chat',
     },
     {
       poto: Notification,
       title: 'Notifikasi',
       subTitle: 'Pesan, grup & nada dering panggilan',
+      screen: 'Notifikasi',
     },
     {
       poto: Key,
       title: 'Penyimpanan dan Data',
       subTitle: 'Penggunaan jaringan, unduh otomatis',
+      screen: 'Penyimpanan',
     },
     {
       poto: bahasa,
       title: 'Bahasa Aplkasi',
       subTitle: 'Bahasa indonesia (bahasa perangkat)',
+      screen: 'Bahasa',
     },
     {
       poto: Help,
       title: 'Bantuan',
       subTitle: 'Pusat bantuan, hubungi kami,',
+      screen: 'Bantuuan',
     },
     {
       poto: Undangan,
       title: 'Undang teman',
+      screen: 'Undang',
     },
     {
       poto: Android,
       title: 'Pembaruan aplikasi',
+      screen: 'Pembaruan',
     },
   ]);
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={{flexDirection: 'row', margin: 20}}>
+      <TouchableOpacity
+        style={{flexDirection: 'row', margin: 20}}
+        onPress={() => navigation.navigate(item.screen)}>
         <Image
           source={item.poto}
           style={{width: 25, height: 25, marginTop: 5}}

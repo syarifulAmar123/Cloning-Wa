@@ -7,6 +7,18 @@ import Masuk from './masuk/masuk';
 import Setelan from './setelan/Setelan';
 import Tautan from './tautan/tautan';
 import Barcode from './barcode/barcode';
+import ujicoba from './ujicooba/ujicoba';
+import Akun from './akun/Akun';
+import Privasi from './privasi/Privasi';
+import Avatar from './avatar/Avatar';
+import Daftar from './daftar/Daftar';
+import Chat from './chat/Chat';
+import Notifikasi from './notifikasi/Notifikasi';
+import Penyimpanan from './penyimapanan/Penyimpanan';
+import Bahasa from './bahasa/Bahasa';
+import Bantuuan from './bantuan/Bantuuan';
+import Pembaruan from './pembaruan/Pembaruan';
+import Undang from './undang/Undang';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -21,6 +33,18 @@ const App = () => {
         <Stack.Screen name="Setelan" component={Setelan} />
         <Stack.Screen name="Tautan" component={Tautan} />
         <Stack.Screen name="barcode" component={Barcode} />
+        <Stack.Screen name="akun" component={Akun} />
+        <Stack.Screen name="Privasi" component={Privasi} />
+        <Stack.Screen name="Avatar" component={Avatar} />
+        <Stack.Screen name="Daftar" component={Daftar} />
+        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Notifikasi" component={Notifikasi} />
+        <Stack.Screen name="Penyimpanan" component={Penyimpanan} />
+        <Stack.Screen name="Bahasa" component={Bahasa} />
+        <Stack.Screen name="Bantuuan" component={Bantuuan} />
+        <Stack.Screen name="Undang" component={Undang} />
+        <Stack.Screen name="Pembaruan" component={Pembaruan} />
+        {/* <Stack.Screen name="ujicoba" component={ujicoba} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

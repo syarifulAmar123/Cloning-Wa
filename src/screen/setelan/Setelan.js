@@ -191,7 +191,7 @@ const Setelan = ({navigation}) => {
           renderItem={renderItem}
           nestedScrollEnabled={true}
         />
-        <Text style={{fontSize: 14, color: 'grey', margin: 20}}>
+        <Text style={{fontSize: 14, color: 'grey', margin: 20, marginTop: -5}}>
           juga dari Meta
         </Text>
       </ScrollView>

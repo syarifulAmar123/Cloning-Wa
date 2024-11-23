@@ -163,7 +163,8 @@ const Masuk = ({route, navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            minHeight: 52,
+            // minHeight: 52,
+            // maxHeight: '80%',dsadas
             width: 315,
             borderWidth: 1,
             borderColor: 'grey',
@@ -210,6 +211,8 @@ const Masuk = ({route, navigation}) => {
             height: 50,
             borderRadius: 40,
             marginLeft: 10,
+            position: 'absolute',
+            right: -70,
           }}
           onPress={addTodo}>
           <Image source={ganti ? kirim : Mic} style={{width: 20, height: 20}} />

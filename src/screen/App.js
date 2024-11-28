@@ -19,6 +19,7 @@ import Bahasa from './bahasa/Bahasa';
 import Bantuuan from './bantuan/Bantuuan';
 import Pembaruan from './pembaruan/Pembaruan';
 import Undang from './undang/Undang';
+import Color from './colorManagers/Color';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -44,6 +45,7 @@ const App = () => {
         <Stack.Screen name="Bantuuan" component={Bantuuan} />
         <Stack.Screen name="Undang" component={Undang} />
         <Stack.Screen name="Pembaruan" component={Pembaruan} />
+        <Stack.Screen name="Color" component={Color} />
         {/* <Stack.Screen name="ujicoba" component={ujicoba} /> */}
       </Stack.Navigator>
     </NavigationContainer>

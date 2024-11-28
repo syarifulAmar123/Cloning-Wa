@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity, Linking} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Linking,
+  Modal,
+} from 'react-native';
 import {Balik, computer, Phone, Windows} from '../../assets';
 
 const Tautan = ({navigation}) => {
@@ -38,11 +45,11 @@ const Tautan = ({navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            marginTop: 20,
+            marginTop: 30,
             justifyContent: 'space-around',
             marginHorizontal: 50,
           }}>
-          <Image source={Phone} style={{width: 60, height: 60}} />
+          <Image source={Phone} style={{width: 100, height: 100}} />
           <Image source={computer} style={{width: 100, height: 100}} />
         </View>
         <Text
@@ -81,7 +88,7 @@ const Tautan = ({navigation}) => {
       </View>
       <View
         style={{
-          marginTop: 15,
+          marginTop: 20,
           width: '100%',
           height: 140,
           backgroundColor: '#001414',
@@ -113,6 +120,37 @@ const Tautan = ({navigation}) => {
           </View>
         </View>
       </View>
+      <Modal transparent={true}>
+        <View
+          style={{
+            width: 300,
+            height: 100,
+            backgroundColor: 'hsl(0, 0%, 98%)',
+            alignSelf: 'center',
+            position: 'absolute',
+            bottom: 20,
+            borderRadius: 10,
+          }}>
+          <Text style={{color: 'black', textAlign: 'center', marginTop: 20}}>
+            Apakah anda yakin
+          </Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginHorizontal: 30,
+              marginTop: 10,
+            }}>
+            <TouchableOpacity
+              style={{width: 50, height: 50, borderRadius: 10, marginLeft: 10}}>
+              <Text style={{color: '#22c860', fontSize: 14}}>Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{width: 50, height: 50, borderRadius: 10}}>
+              <Text style={{color: '#22c860', fontSize: 14}}>No</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };

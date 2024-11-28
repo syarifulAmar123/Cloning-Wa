@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
 import {Back, Cam, Chat, Photo, Search, Setings, User} from '../../assets';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Home = ({navigation}) => {
   const [isi, setIsi] = useState([
@@ -42,8 +43,8 @@ const Home = ({navigation}) => {
     if (value === '' || !photoUri) {
       Alert.alert('Mohon isi nama dan pilih foto');
     } else {
-      const newExx = [...isi, {nama: value, poto: {uri: photoUri}}];
-      setIsi(newExx);
+      const News = [...isi, {nama: value, poto: {uri: photoUri}}];
+      setIsi(News);
       setVisible(false);
       setValue('');
       setPhotoUri(null);
@@ -113,7 +114,7 @@ const Home = ({navigation}) => {
               <View
                 style={{
                   width: 160,
-                  height: 210,
+                  height: 230,
                   backgroundColor: '#11171a',
                   position: 'absolute',
                   right: 5,
@@ -179,6 +180,18 @@ const Home = ({navigation}) => {
                       marginLeft: 12,
                     }}>
                     Setelan
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Color')}>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: 'white',
+                      fontWeight: '400',
+                      marginTop: 15,
+                      marginLeft: 12,
+                    }}>
+                    Color manager
                   </Text>
                 </TouchableOpacity>
               </View>

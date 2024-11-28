@@ -32,6 +32,7 @@ export default function SplashScreen({navigation}) {
             color: 'grey',
             fontWeight: 'bold',
             fontSize: 16,
+            marginLeft: 10,
             textAlign: 'center',
           }}>
           From

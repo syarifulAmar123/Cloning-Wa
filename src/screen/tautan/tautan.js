@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -15,6 +15,7 @@ const Tautan = ({navigation}) => {
       'https://faq.whatsapp.com/378279804439436/?cms_platform=android&locale=id_ID&eea=0',
     ).catch(err => console.error('An error occurred', err));
   };
+  const [visible, setVisible] = useState(false);
   return (
     <View style={{flex: 1, backgroundColor: '#11191c'}}>
       <View
@@ -23,6 +24,7 @@ const Tautan = ({navigation}) => {
           paddingBottom: 15,
           flexDirection: 'row',
           alignItems: 'center',
+          
         }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -82,7 +84,8 @@ const Tautan = ({navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 20,
-          }}>
+          }}
+          onPress={() => setVisible(true)}>
           <Text style={{fontSize: 14, color: 'black'}}>Tautkan Perangkat</Text>
         </TouchableOpacity>
       </View>
@@ -120,7 +123,7 @@ const Tautan = ({navigation}) => {
           </View>
         </View>
       </View>
-      <Modal transparent={true}>
+      <Modal transparent={true} visible={visible} animationType="slide">
         <View
           style={{
             width: 300,
@@ -142,10 +145,13 @@ const Tautan = ({navigation}) => {
               marginTop: 10,
             }}>
             <TouchableOpacity
-              style={{width: 50, height: 50, borderRadius: 10, marginLeft: 10}}>
+              style={{width: 50, height: 50, borderRadius: 10, marginLeft: 10}}
+              onPress={() => navigation.navigate('barcode')}>
               <Text style={{color: '#22c860', fontSize: 14}}>Yes</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{width: 50, height: 50, borderRadius: 10}}>
+            <TouchableOpacity
+              style={{width: 50, height: 50, borderRadius: 10}}
+              onPress={() => setVisible(false)}>
               <Text style={{color: '#22c860', fontSize: 14}}>No</Text>
             </TouchableOpacity>
           </View>

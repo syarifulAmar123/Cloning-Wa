@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {
+  Image,
   StatusBar,
   Text,
   TouchableOpacity,
@@ -7,8 +8,9 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Balik} from '../../assets';
 
-const Color = () => {
+const Color = ({navigation}) => {
   const [nyala, setNyala] = useState(false);
   const handlerTheme = () => {
     setNyala(!nyala);
@@ -25,6 +27,25 @@ const Color = () => {
         alignItems: 'center',
         backgroundColor: nyala ? '#091114' : 'white',
       }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={Balik}
+            style={{width: 25, height: 38, marginLeft: 10}}
+          />
+        </TouchableOpacity>
+        <Text style={{fontSize: 18, marginLeft: 20, color: 'white'}}>
+          Color manager
+        </Text>
+      </View>
       <StatusBar backgroundColor={nyala ? '#091114' : 'white'} />
       <Text
         style={{

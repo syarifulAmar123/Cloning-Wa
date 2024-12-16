@@ -126,6 +126,7 @@ const Setelan = ({navigation}) => {
           borderBottomWidth: 0.2,
           borderColor: '#2b3338',
           paddingBottom: 15,
+          marginTop: 15,
         }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image

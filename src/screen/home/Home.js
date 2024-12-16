@@ -80,7 +80,7 @@ const Home = ({navigation}) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           marginHorizontal: 20,
-          marginTop: 10,
+          marginTop: 15,
         }}>
         <Text
           style={{

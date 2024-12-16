@@ -163,7 +163,7 @@ const Masuk = ({route, navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            // minHeight: 52,
+            // minHeight: 52,balik
             // maxHeight: '80%',dsadas
             width: 315,
             borderWidth: 1,

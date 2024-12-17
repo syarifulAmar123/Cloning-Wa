@@ -2,9 +2,7 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {View} from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import PagerView from 'react-native-pager-view';
+import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 import SplashScreen from './splashScreen';
 import Home from './home/Home';
 import Masuk from './masuk/masuk';
@@ -23,10 +21,74 @@ import Undang from './undang/Undang';
 import Color from './colorManagers/Color';
 import Penyimpanan from './penyimapanan/Penyimpanan';
 import Bantuuan from './bantuan/Bantuuan';
+import Pindai from './pindai/Pindai';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {Balik, Share, Three} from '../assets';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+const Top = createMaterialTopTabNavigator();
+
+const MyJob = ({navigation}) => {
+  return (
+    <View style={{flex: 1}}>
+      {/* Header */}
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: 50,
+          backgroundColor: '#001414',
+        }}>
+        <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10}}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={Balik} style={{width: 25, height: 25}} />
+          </TouchableOpacity>
+
+          <Text style={{color: 'white', fontSize: 16, marginLeft: 15}}>
+            Kode QR
+          </Text>
+        </View>
+        <View style={{flexDirection: 'row', marginTop: 10}}>
+          <TouchableOpacity>
+            <Image source={Share} style={{width: 25, height: 25}} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image source={Three} style={{width: 25, height: 25}} />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* Top Tab Navigator */}
+      <Top.Navigator
+        initialRouteName="Barcode"
+        screenOptions={{
+          tabBarStyle: {backgroundColor: '#001414'}, // Style Tab Bar
+          tabBarLabelStyle: {color: 'white'}, // Warna Label Tab
+          tabBarIndicatorStyle: {backgroundColor: '#1caa60'}, // Indikator aktif
+        }}>
+        <Top.Screen name="Barcode" component={Barcode} />
+        <Top.Screen name="Pindai" component={Pindai} />
+      </Top.Navigator>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  header: {
+    height: 60,
+    backgroundColor: '#1caa60',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+});
 
 const MyTab = () => {
   return (
@@ -67,7 +129,7 @@ const App = () => {
         <Stack.Screen name="Home" component={MyTab} />
         <Stack.Screen name="Masuk" component={Masuk} />
         <Stack.Screen name="Tautan" component={Tautan} />
-        <Stack.Screen name="Barcode" component={Barcode} />
+        <Stack.Screen name="MyJob" component={MyJob} />
         <Stack.Screen name="Akun" component={Akun} />
         <Stack.Screen name="Privasi" component={Privasi} />
         <Stack.Screen name="Avatar" component={Avatar} />
@@ -84,23 +146,3 @@ const App = () => {
 };
 
 export default App;
-
-// gesture untu swipe
-
-// function MyTabs() {
-//   return (
-//     <GestureHandlerRootView style={{flex: 1}}>
-//       <PagerView style={{flex: 1}} initialPage={0}>
-//         <View key="1">
-//           <Home />
-//         </View>
-//         <View key="2">
-//           <Notifikasi />
-//         </View>
-//         <View key="3">
-//           <Setelan />
-//         </View>
-//       </PagerView>
-//     </GestureHandlerRootView>
-//   );
-// }

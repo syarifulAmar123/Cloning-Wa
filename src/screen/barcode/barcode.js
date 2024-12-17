@@ -5,7 +5,7 @@ import {Amar, Balik, QR, Share, Three} from '../../assets';
 const Barcode = ({navigation}) => {
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
-      <View
+      {/* <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
@@ -30,7 +30,7 @@ const Barcode = ({navigation}) => {
             <Image source={Three} style={{width: 25, height: 25}} />
           </TouchableOpacity>
         </View>
-      </View>
+      </View> */}
       <View
         style={{
           width: 300,

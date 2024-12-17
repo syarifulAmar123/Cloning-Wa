@@ -14,7 +14,6 @@ import Privasi from './privasi/Privasi';
 import Avatar from './avatar/Avatar';
 import Daftar from './daftar/Daftar';
 import Chat from './chat/Chat';
-import Notifikasi from './notifikasi/Notifikasi';
 import Bahasa from './bahasa/Bahasa';
 import Pembaruan from './pembaruan/Pembaruan';
 import Undang from './undang/Undang';
@@ -25,6 +24,7 @@ import Pindai from './pindai/Pindai';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {Balik, Share, Three} from '../assets';
+import Status from './status/Status';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,7 +39,7 @@ const MyJob = ({navigation}) => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           width: '100%',
-          height: 50,
+          height: 40,
           backgroundColor: '#001414',
         }}>
         <View style={{flexDirection: 'row', marginLeft: 10, marginTop: 10}}>
@@ -51,7 +51,7 @@ const MyJob = ({navigation}) => {
             Kode QR
           </Text>
         </View>
-        <View style={{flexDirection: 'row', marginTop: 10}}>
+        <View style={{flexDirection: 'row', marginTop: 10, right: 5}}>
           <TouchableOpacity>
             <Image source={Share} style={{width: 25, height: 25}} />
           </TouchableOpacity>
@@ -60,40 +60,27 @@ const MyJob = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
-
       {/* Top Tab Navigator */}
       <Top.Navigator
-        initialRouteName="Barcode"
+        initialRouteName="Kode saya"
         screenOptions={{
-          tabBarStyle: {backgroundColor: '#001414'}, // Style Tab Bar
-          tabBarLabelStyle: {color: 'white'}, // Warna Label Tab
-          tabBarIndicatorStyle: {backgroundColor: '#1caa60'}, // Indikator aktif
+          tabBarStyle: {backgroundColor: '#001414'},
+          tabBarIndicatorStyle: {backgroundColor: '#1caa60'},
+          tabBarActiveTintColor: 'white',
+          tabBarInactiveTintColor: 'gray',
         }}>
-        <Top.Screen name="Barcode" component={Barcode} />
+        <Top.Screen name="Kode saya" component={Barcode} />
         <Top.Screen name="Pindai" component={Pindai} />
       </Top.Navigator>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  header: {
-    height: 60,
-    backgroundColor: '#1caa60',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
-
 const MyTab = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
+        tabBarStyle: {backgroundColor: '#001414'},
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
 
@@ -113,7 +100,7 @@ const MyTab = () => {
         tabBarInactiveBackgroundColor: '#001414',
       })}>
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Notifikasi" component={Notifikasi} />
+      <Tab.Screen name="Notifikasi" component={Status} />
       <Tab.Screen name="Setelan" component={Setelan} />
     </Tab.Navigator>
   );
@@ -126,7 +113,7 @@ const App = () => {
         initialRouteName="SplashScreen"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="Home" component={MyTab} />
+        <Stack.Screen name="Mytab" component={MyTab} />
         <Stack.Screen name="Masuk" component={Masuk} />
         <Stack.Screen name="Tautan" component={Tautan} />
         <Stack.Screen name="MyJob" component={MyJob} />
@@ -140,6 +127,7 @@ const App = () => {
         <Stack.Screen name="Undang" component={Undang} />
         <Stack.Screen name="Pembaruan" component={Pembaruan} />
         <Stack.Screen name="Color" component={Color} />
+        <Stack.Screen name="Chat" component={Chat} />
       </Stack.Navigator>
     </NavigationContainer>
   );

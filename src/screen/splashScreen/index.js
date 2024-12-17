@@ -5,7 +5,7 @@ import {Meta, Wa} from '../../assets';
 export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home');
+      navigation.replace('Mytab');
     }, 3000);
   }, []);
   return (
